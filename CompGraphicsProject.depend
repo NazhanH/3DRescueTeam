@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1726940422 source:c:\dev\comp graphics\compgraphicsproject\windmill.cpp
+	"Windmill.h"
+
+1726989487 source:c:\dev\comp graphics\compgraphicsproject\main.cpp
+	<GL\glut.h>
+	<math.h>
+	<stdlib.h>
+	"Windmill.h"
+	"Tree.h"
+
+1726988074 c:\dev\comp graphics\compgraphicsproject\windmill.h
+	<GL/glut.h>
+
+1726988074 c:\dev\comp graphics\compgraphicsproject\tree.h
+	<GL/glut.h>
+
+1726989555 source:c:\dev\comp graphics\compgraphicsproject\tree.cpp
+	"Tree.h"
+
