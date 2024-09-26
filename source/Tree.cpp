@@ -1,4 +1,4 @@
-#include "Tree.h"
+#include "../header/Tree.h"
 
 Tree::Tree(float x, float y, float z)
     : posX(x), posY(y), posZ(z){}

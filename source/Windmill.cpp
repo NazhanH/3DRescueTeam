@@ -1,4 +1,4 @@
-#include "Windmill.h"
+#include "../header/Windmill.h"
 
 Windmill::Windmill(float x, float y, float z)
     : posX(x), posY(y), posZ(z){}

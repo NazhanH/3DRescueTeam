@@ -2,12 +2,13 @@
 1726940422 source:c:\dev\comp graphics\compgraphicsproject\windmill.cpp
 	"Windmill.h"
 
-1726989487 source:c:\dev\comp graphics\compgraphicsproject\main.cpp
+1727257949 source:c:\dev\comp graphics\compgraphicsproject\main.cpp
 	<GL\glut.h>
 	<math.h>
 	<stdlib.h>
 	"Windmill.h"
 	"Tree.h"
+	"Sun.h"
 
 1726988074 c:\dev\comp graphics\compgraphicsproject\windmill.h
 	<GL/glut.h>
@@ -17,4 +18,53 @@
 
 1726989555 source:c:\dev\comp graphics\compgraphicsproject\tree.cpp
 	"Tree.h"
+
+1726992843 source:c:\dev\comp graphics\compgraphicsproject\sun.cpp
+	"Sun.h"
+
+1726992792 c:\dev\comp graphics\compgraphicsproject\sun.h
+	<GL/glut.h>
+
+1727341813 source:c:\dev\comp graphics\compgraphicsproject\source\sun.cpp
+	"../header/Sun.h"
+
+1727341339 c:\dev\comp graphics\compgraphicsproject\header\sun.h
+	<GL/glut.h>
+	<unistd.h>
+	<ctime>
+
+1727259640 source:c:\dev\comp graphics\compgraphicsproject\source\tree.cpp
+	"../header/Tree.h"
+
+1726988074 c:\dev\comp graphics\compgraphicsproject\header\tree.h
+	<GL/glut.h>
+
+1727259640 source:c:\dev\comp graphics\compgraphicsproject\source\windmill.cpp
+	"../header/Windmill.h"
+
+1726988074 c:\dev\comp graphics\compgraphicsproject\header\windmill.h
+	<GL/glut.h>
+
+1727261390 source:c:\dev\comp graphics\compgraphicsproject\source\helicopter.cpp
+	"../header/Helicopter.h"
+
+1727261316 c:\dev\comp graphics\compgraphicsproject\header\helicopter.h
+	<GL/glut.h>
+	<math.h>
+
+1727342407 source:c:\dev\comp graphics\compgraphicsproject\source\main.cpp
+	<GL/glu.h>
+	<math.h>
+	<stdlib.h>
+	"../header/Windmill.h"
+	"../header/Tree.h"
+	"../header/Sun.h"
+	"../header/Helicopter.h"
+	"../header/Firetruck.h"
+
+1727325865 c:\dev\comp graphics\compgraphicsproject\header\firetruck.h
+	<GL/glut.h>
+
+1727340812 source:c:\dev\comp graphics\compgraphicsproject\source\firetruck.cpp
+	"../header/Firetruck.h"
 

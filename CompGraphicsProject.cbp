@@ -13,7 +13,12 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="C:/Program Files/Assimp/include" />
 				</Compiler>
+				<Linker>
+					<Add library="C:/Program Files/Assimp/lib/x64/assimp-vc143-mt.lib" />
+					<Add directory="C:/Program Files/Assimp/lib" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/CompGraphicsProject" prefix_auto="1" extension_auto="1" />
@@ -31,14 +36,18 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Sun.cpp" />
-		<Unit filename="Sun.h" />
-		<Unit filename="Tree.cpp" />
-		<Unit filename="Tree.h" />
-		<Unit filename="Windmill.cpp" />
-		<Unit filename="Windmill.h" />
 		<Unit filename="glut32.dll" />
-		<Unit filename="main.cpp" />
+		<Unit filename="header/Firetruck.h" />
+		<Unit filename="header/Helicopter.h" />
+		<Unit filename="header/Sun.h" />
+		<Unit filename="header/Tree.h" />
+		<Unit filename="header/Windmill.h" />
+		<Unit filename="source/Firetruck.cpp" />
+		<Unit filename="source/Helicopter.cpp" />
+		<Unit filename="source/Sun.cpp" />
+		<Unit filename="source/Tree.cpp" />
+		<Unit filename="source/Windmill.cpp" />
+		<Unit filename="source/main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

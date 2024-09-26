@@ -2,12 +2,17 @@
 //Lab: 3D Modelling
 //--------------------------------------------
 
-#include <GL\glut.h>
+
+#include <GL/glu.h>
 #include <math.h>
 #include <stdlib.h>
+//#include <assimp/Importer.hpp>
 
-#include "Windmill.h"
-#include "Tree.h"
+#include "../header/Windmill.h"
+#include "../header/Tree.h"
+#include "../header/Sun.h"
+#include "../header/Helicopter.h"
+#include "../header/Firetruck.h"
 
 static int windowWidth=800;
 static int windowHeight=500;
@@ -29,6 +34,9 @@ int mouseX, mouseY;
 
 Windmill win1(0,0,0);
 Tree t1(0,0,0);
+Helicopter h1(-15,10,0);
+Firetruck f1(0,0,0);
+Sun s1(10,10,0);
 
 void myInit(void)
 {
@@ -37,7 +45,8 @@ void myInit(void)
    static GLfloat specular[] = { 0.0f,  0.0f,  0.0f, 1.0f };
    static GLfloat  ref[] = { 1.0f,  1.0f,  1.0f, 1.0f };
    static GLfloat position[] = {10.0f, 10.0f, 10.0f, 1.0f };
-   short shininess = 128;
+   //short shininess = 128;
+   short shininess = 50;
 
 	glEnable(GL_DEPTH_TEST);
 	glShadeModel (GL_SMOOTH);
@@ -125,13 +134,17 @@ void myDisplayFunc(void)
 
  win1.draw();
  t1.draw();
+ h1.draw();
+ f1.draw();
+ s1.draw();
 
  glPopMatrix();
  glFlush();
  glutSwapBuffers();
 }
 void updateScene(){
- glutPostRedisplay();
+//glutSwapBuffers();
+glutPostRedisplay();
 }
 
 //--------------------------------------------------------------------------

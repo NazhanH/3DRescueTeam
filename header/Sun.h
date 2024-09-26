@@ -2,10 +2,15 @@
 #define SUN_H
 
 #include <GL/glut.h>
+#include <unistd.h>
+#include <ctime>
 
 class Sun {
 private:
     float posX, posY, posZ;   // Position of the sun
+    bool useOuterRing1 = true;
+    time_t lastSwitchTime = time(NULL);  // Store the initial time
+
 
 public:
     // Constructor
@@ -20,6 +25,7 @@ private:
     void sunCentre();
     void outerRing1();
     void outerRing2();
+    void drawSun();
 
     };
 
