@@ -154,9 +154,10 @@ Sun::Sun(float x, float y, float z)
 
 
     void Sun::draw(){
-
+    glPushMatrix();
     glTranslatef(posX,posY,posZ);
     drawSun();
+    glPopMatrix();
 
     }
 

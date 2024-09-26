@@ -25,7 +25,7 @@
 1726992792 c:\dev\comp graphics\compgraphicsproject\sun.h
 	<GL/glut.h>
 
-1727341813 source:c:\dev\comp graphics\compgraphicsproject\source\sun.cpp
+1727368746 source:c:\dev\comp graphics\compgraphicsproject\source\sun.cpp
 	"../header/Sun.h"
 
 1727341339 c:\dev\comp graphics\compgraphicsproject\header\sun.h
@@ -39,20 +39,20 @@
 1726988074 c:\dev\comp graphics\compgraphicsproject\header\tree.h
 	<GL/glut.h>
 
-1727259640 source:c:\dev\comp graphics\compgraphicsproject\source\windmill.cpp
+1727345696 source:c:\dev\comp graphics\compgraphicsproject\source\windmill.cpp
 	"../header/Windmill.h"
 
 1726988074 c:\dev\comp graphics\compgraphicsproject\header\windmill.h
 	<GL/glut.h>
 
-1727261390 source:c:\dev\comp graphics\compgraphicsproject\source\helicopter.cpp
+1727342663 source:c:\dev\comp graphics\compgraphicsproject\source\helicopter.cpp
 	"../header/Helicopter.h"
 
 1727261316 c:\dev\comp graphics\compgraphicsproject\header\helicopter.h
 	<GL/glut.h>
 	<math.h>
 
-1727342407 source:c:\dev\comp graphics\compgraphicsproject\source\main.cpp
+1727368683 source:c:\dev\comp graphics\compgraphicsproject\source\main.cpp
 	<GL/glu.h>
 	<math.h>
 	<stdlib.h>
@@ -61,10 +61,25 @@
 	"../header/Sun.h"
 	"../header/Helicopter.h"
 	"../header/Firetruck.h"
+	"../header/Tank.h"
+	"../header/PoliceCar.h"
 
 1727325865 c:\dev\comp graphics\compgraphicsproject\header\firetruck.h
 	<GL/glut.h>
 
 1727340812 source:c:\dev\comp graphics\compgraphicsproject\source\firetruck.cpp
 	"../header/Firetruck.h"
+
+1727348132 c:\dev\comp graphics\compgraphicsproject\header\tank.h
+	<GL/glut.h>
+
+1727361436 source:c:\dev\comp graphics\compgraphicsproject\source\policecar.cpp
+	"../header/PoliceCar.h"
+
+1727361436 c:\dev\comp graphics\compgraphicsproject\header\policecar.h
+	<GL/glut.h>
+	<ctime>
+
+1727368876 source:c:\dev\comp graphics\compgraphicsproject\source\tank.cpp
+	"../header/Tank.h"
 

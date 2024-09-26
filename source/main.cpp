@@ -13,10 +13,12 @@
 #include "../header/Sun.h"
 #include "../header/Helicopter.h"
 #include "../header/Firetruck.h"
+#include "../header/Tank.h"
+#include "../header/PoliceCar.h"
 
 static int windowWidth=800;
 static int windowHeight=500;
-static float fieldOfView= 60.0;
+static float fieldOfView= 200.0;
 static float aspectRatio = static_cast<GLdouble> (windowWidth)/windowHeight;
 double rotateX  = 0.0;
 double rotateY  = 0.0;
@@ -31,26 +33,29 @@ static bool mousePanMode=false;
 static bool mouseZoomMode=false;
 static bool mouseRotationMode=false;
 int mouseX, mouseY;
+const int NUM_BUILDINGS = 50;
 
 Windmill win1(0,0,0);
 Tree t1(0,0,0);
 Helicopter h1(-15,10,0);
-Firetruck f1(0,0,0);
-Sun s1(10,10,0);
+Firetruck f1(0,0.6,0);
+Sun s1(25,30,-50);
+Tank tank1(0,0,0);
+PoliceCar p1(0,0,0);
 
 void myInit(void)
 {
-   static GLfloat  ambient[] = { 0.0f,  0.0f,  0.0f, 1.0f };
-   static GLfloat  diffuse[] = { 1.0f,  1.0f,  1.0f, 1.0f };
-   static GLfloat specular[] = { 0.0f,  0.0f,  0.0f, 1.0f };
-   static GLfloat  ref[] = { 1.0f,  1.0f,  1.0f, 1.0f };
-   static GLfloat position[] = {10.0f, 10.0f, 10.0f, 1.0f };
+   static GLfloat  ambient[] = { 0.0f,  0.0f,  0.0f, 0.0f };
+   static GLfloat  diffuse[] = { 0.5f,  0.5f,  0.5f, 1.0f };
+   static GLfloat specular[] = { 0.0f,  0.0f,  0.0f, 0.0f };
+   static GLfloat  ref[] = { 0.0f,  0.0f,  0.0f, 0.0f };
+   static GLfloat position[] = {10.0f, 10.0f, 20.0f, 1.0f };
    //short shininess = 128;
-   short shininess = 50;
+   short shininess = 0;
 
 	glEnable(GL_DEPTH_TEST);
 	glShadeModel (GL_SMOOTH);
-	glClearColor(0.8f, 0.8f, 0.8f, 0.0f);
+	glClearColor(0.5f, 0.8f, 1.0f, 1.0f); // Sky blue background
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
 	glEnable(GL_LIGHTING);
@@ -118,6 +123,96 @@ void MyModelAxis(void)
  //glEnable(GL_LIGHTING);
 }
 //--------------------------------------------------------------------------
+
+// Function to draw the road
+void drawRoad() {
+    glPushMatrix();
+    glColor3f(0.2f, 0.2f, 0.2f); // Dark grey road
+    glTranslatef(0.0f, 0.0f, 0.0f);
+    glScalef(200.0f, 0.1f, 9.0f); // Long road with some width
+    glutSolidCube(1.0);
+    glPopMatrix();
+}
+
+// Function to draw the grass background
+void drawGrass() {
+    glPushMatrix();
+    glColor3f(0.1f, 0.6f, 0.1f); // Green grass
+    glTranslatef(0.0f, 0.0f, 0.0f);
+    glScalef(200.0f, 0.05f, 200.0f); // Large flat ground
+    glutSolidCube(1.0);
+    glPopMatrix();
+}
+
+
+// Function to draw a building with darker light blue color (single block skyscraper)
+void drawBuilding(float width, float height, float depth) {
+    // Set color to darker light blue
+    glColor3f(0.4f, 0.6f, 0.8f);  // Darker light blue color
+
+    // Main building block
+    glBegin(GL_QUADS);
+
+    // Front face
+    glVertex3f(-width / 2, 0, depth / 2);
+    glVertex3f(width / 2, 0, depth / 2);
+    glVertex3f(width / 2, height, depth / 2);
+    glVertex3f(-width / 2, height, depth / 2);
+
+    // Back face
+    glVertex3f(-width / 2, 0, -depth / 2);
+    glVertex3f(width / 2, 0, -depth / 2);
+    glVertex3f(width / 2, height, -depth / 2);
+    glVertex3f(-width / 2, height, -depth / 2);
+
+    // Left face
+    glVertex3f(-width / 2, 0, -depth / 2);
+    glVertex3f(-width / 2, 0, depth / 2);
+    glVertex3f(-width / 2, height, depth / 2);
+    glVertex3f(-width / 2, height, -depth / 2);
+
+    // Right face
+    glVertex3f(width / 2, 0, -depth / 2);
+    glVertex3f(width / 2, 0, depth / 2);
+    glVertex3f(width / 2, height, depth / 2);
+    glVertex3f(width / 2, height, -depth / 2);
+
+    // Top face
+    glVertex3f(-width / 2, height, -depth / 2);
+    glVertex3f(width / 2, height, -depth / 2);
+    glVertex3f(width / 2, height, depth / 2);
+    glVertex3f(-width / 2, height, depth / 2);
+
+    glEnd();
+}
+
+void drawCityScape(){
+
+    glPushMatrix();
+    glScalef(1,0.5,1);
+
+    glTranslatef(-50,0,-50);
+
+ // Place buildings
+    srand(time(0));  // Seed random generator for random building placement
+    for (int i = 0; i < NUM_BUILDINGS; ++i) {
+        float x = rand() % 200 - 50;
+        float z = rand() % 50 - 50;
+        float width = rand() % 10 + 5;
+        float height = rand() % 30 + 10;
+        float depth = rand() % 10 + 5;
+
+        glPushMatrix();
+        glTranslatef(x, 0, z);
+        drawBuilding(width, height, depth);  // Draw simplified building with darker light blue color
+        glPopMatrix();
+    }
+    glPopMatrix();
+
+}
+
+
+
 void myDisplayFunc(void)
 {
  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -131,12 +226,19 @@ void myDisplayFunc(void)
 
  MyModelAxis();
  //Add code here
+ drawGrass();
+ drawRoad();
+ drawCityScape();
 
+ glPushMatrix();
  win1.draw();
  t1.draw();
  h1.draw();
  f1.draw();
  s1.draw();
+ tank1.draw();
+p1.draw();
+glPopMatrix();
 
  glPopMatrix();
  glFlush();
@@ -161,6 +263,9 @@ void myKeyboardFunc(unsigned char key, int x, int y)
   {
 
     case 27  : exit(1); break;
+    case 't' : tank1.launchBomb(); break;
+    case 'r' : tank1.cannonUp(); break;
+    case 'y' : tank1.cannonDown(); break;
   }
   glutPostRedisplay();
 }

@@ -64,8 +64,6 @@ void Windmill::polyhedronHexagon(void){
 
     glEnd();
 
-
-
 }
 
 void Windmill::polyhedronPentagon(){
@@ -110,31 +108,10 @@ void Windmill::polyhedronPentagon(){
 
     glEnd();
 
-
 }
 
 void Windmill::Supporter()
 {
-//    GLUquadricObj *pObj;
-//    pObj = gluNewQuadric();
-//    gluQuadricNormals(pObj, GLU_SMOOTH);
-//    glPushMatrix();
-//    // Add code here
-//
-//    glRotatef(-90,1,0,0);
-//    glColor3f(1,0,0);
-//    gluCylinder(pObj,2,1,2,26,13);
-//
-//    glColor3f(0,0,1);
-//    gluCylinder(pObj, 1.5,0.3,10,26,13);
-//
-//    glColor3f(0,1,0);
-//    glTranslatef(0,0,10);
-//    gluCylinder(pObj,2,2,0.5,26,13);
-//
-//
-//    glPopMatrix();
-//    gluDeleteQuadric(pObj);
 
 glPushMatrix();
 //glScalef(2,2,2);
@@ -163,21 +140,6 @@ glPopMatrix();
 
 void Windmill::SingleFan()
 {
-//    GLUquadricObj *pObj;
-//    pObj = gluNewQuadric();
-//    gluQuadricNormals(pObj, GLU_SMOOTH);
-//    glPushMatrix();
-//    glColor3f(0,0,1);
-//    gluCylinder(pObj, 0.5f, 1.5f, 3.0f, 26, 13);
-//    // Add code here
-//
-//    glColor3f(1,1,0);
-//    glRotatef(-90,0,1,0);
-//    glTranslatef(1,0,-1.2);
-//    gluCylinder(pObj, 0.7f,0.7f,2.4f,26,13);
-//
-//    glPopMatrix();
-//    gluDeleteQuadric(pObj);
 
     glBegin(GL_QUADS);
     glColor3f(1,1,1);
@@ -244,6 +206,7 @@ static float Rotation=0;
 void Windmill::draw(){   // Add code here
 
     glPushMatrix();
+    glRotatef(180,0,1,0);
     glTranslatef(posX,posY,posZ);
     Supporter();
     glPushMatrix();
